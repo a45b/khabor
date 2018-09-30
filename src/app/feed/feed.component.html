@@ -1,0 +1,49 @@
+<div *ngIf="isLoading === true; then loadingBlock; else listBlock">
+    this is ignored
+</div>
+
+<ng-template #loadingBlock>   
+  <div style="overflow: hidden;">                
+    <mat-progress-spinner style="margin:0 auto; margin-top: 30vh;" mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-template>
+<ng-template #listBlock>   
+<div>  
+  <mat-card class="article" *ngFor="let article of articles">
+    <mat-card-content>                                              
+      <mat-grid-list cols="4" rowHeight="100px">
+        <a href="{{ article.url }}" target="_blank">                                    
+          <mat-grid-tile class="img-grid" [colspan]="1" [rowspan]="1">
+            <img class="article-img" src="{{article.urlToImage}}">
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3" [rowspan]="1">
+            <div class="dd">
+              <h3>{{ article.title }}</h3>
+              <p *ngIf="!isSmallScreen" class="article-description">{{ article.description }}</p>
+            </div>
+          </mat-grid-tile>
+        </a>       
+      </mat-grid-list>                    
+      <p *ngIf="!isSmallScreen" class="truncate-text"><small> {{ article.source.name }}</small> <small class="pipe-divider">|</small> <small>{{ article.publishedAt | date: 'MMM d, y, h:mm a' }}</small></p>      
+    </mat-card-content>      
+
+    <mat-card-content *ngIf="isSmallScreen">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>                
+            <p>
+              <small> {{ article.source.name }}</small>                     
+              <br/>
+              <small>{{ article.publishedAt | date: 'MMM d, y, h:mm a' }}</small>
+            </p>
+          </mat-panel-title>
+          <mat-panel-description>                
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p class="article-description">{{ article.description }}</p>
+      </mat-expansion-panel>                        
+    </mat-card-content>
+
+  </mat-card>            
+</div>
+</ng-template>

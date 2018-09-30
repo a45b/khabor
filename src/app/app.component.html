@@ -1,0 +1,55 @@
+<mat-toolbar color="primary" class="top-toolbar">  
+  <h1>
+    <a routerLink="/" routerLinkActive="active">{{ title }} </a>    
+  </h1>  
+  <button mat-icon-button class="country" type="button" routerLink="settings">{{ currentCountry | uppercase }}</button>  
+</mat-toolbar>
+<mat-sidenav-container>
+
+  <mat-sidenav #sidenav
+    [mode]="sidenavMode"
+    [opened]="!isSmallScreen"
+    [position]="sidenavPos"
+    [fixedInViewport]="false">
+    
+    <mat-toolbar color="accent">
+      Category        
+    </mat-toolbar>
+    
+    <mat-nav-list>
+      <mat-list-item         
+        [class.active]="selectedCategory && category.value === selectedCategory.value"
+        *ngFor="let category of categories"         
+        (click)="setCategory(category)">
+          {{ category.name }}
+      </mat-list-item>
+    </mat-nav-list>
+    <mat-divider></mat-divider>
+    <mat-nav-list style="padding-top: 0px;">
+      <a routerLink="settings">
+        <mat-list-item>
+          <mat-icon>settings</mat-icon> Settings 
+        </mat-list-item>
+      </a>
+      <a routerLink="about">
+          <mat-list-item>
+            <mat-icon>info</mat-icon> About
+          </mat-list-item>
+        </a>
+    </mat-nav-list>
+    <mat-divider></mat-divider>
+    <mat-list class="powered-by">
+      <p>Build with <a href="https://angular.io">Angular</a><br/>
+      Powered by <a href="https://newsapi.org">newsapi.org</a></p>
+    </mat-list>
+    
+  </mat-sidenav>
+
+  <mat-toolbar color="warn">
+    <button mat-mini-fab color="primary" (click)="sidenav.toggle()">
+      <mat-icon aria-label="close sidenav">menu</mat-icon>
+    </button> 
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>
+</mat-sidenav-container>

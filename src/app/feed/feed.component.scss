@@ -1,0 +1,58 @@
+mat-card {
+  margin: 20px;
+}
+
+.article a {  
+  text-decoration: none;
+  color: black;
+}
+
+.article-img {
+  width: 100%;
+  height: auto;
+}
+
+.article-description {
+  width: 98%;
+}
+
+mat-card {
+  margin: 20px;
+}
+
+.mat-list {
+  background: #eeeeef;
+}
+
+.active {
+  background: #eeeeef;
+}
+
+.mat-list .mat-list-item .mat-line, .mat-nav-list .mat-list-item .mat-line, .mat-selection-list .mat-list-item .mat-line {
+  white-space: normal;
+}
+
+mat-grid-tile .dd {
+  width: 100%;
+  height: inherit;
+  margin-left: 20px;
+
+  h3 {
+    margin-top: 0px;
+  }
+}
+
+.truncate-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 95%;
+}
+
+.pipe-divider {
+  color: cadetblue;
+}
+
+.mat-grid-tile.img-grid {
+  background: #ccc;
+}

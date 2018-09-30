@@ -1,0 +1,32 @@
+<div class="settings">
+  
+  <mat-card>
+    <mat-form-field> 
+        <mat-select placeholder="Select Country" [formControl]="selectedCountry">
+          <mat-option *ngFor="let country of countries" [value]="country.code">
+            {{ country.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  </mat-card>  
+  <!-- <mat-card>
+    <mat-form-field>
+        <mat-select placeholder="Select Language" [formControl]="selectedLang">
+          <mat-option *ngFor="let lang of languages" [value]="lang.code">
+            {{ lang.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  </mat-card>   -->
+  <!-- <mat-card>
+    <mat-form-field>
+        <mat-select placeholder="Select Sources">
+          <mat-option *ngFor="let source of sources" [value]="source.value">
+            {{ source.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  </mat-card> -->
+  
+
+</div>
